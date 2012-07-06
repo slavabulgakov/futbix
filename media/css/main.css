@@ -1,0 +1,56 @@
+html, body, #YMapsID {
+		width: 100%;
+		height: 100%;
+		font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+		font-size: 12px;overflow-x:hidden;
+	}
+        
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	#message {
+		position:absolute;
+		opacity:.8;
+		top:50%;
+		margin-top:-105px;
+		right:-225px;
+		margin-right:-215px;
+		z-index:2;
+	}
+	#message div {
+		background-color:black;
+		width:430px;
+		height:210px;
+		color:white;
+		padding:0px 5px 5px 5px;
+		border-radius:3px;
+	}
+	#email {
+		display:block;
+		position:absolute;
+		right:5px;
+		bottom:0px;
+		z-index:2;
+		opacity:.8;
+		background-color:black;
+		color:white;
+		font-size:14px;
+		padding:5px 5px 5px 5px;
+	}
+	#email a {
+		color:white;
+		text-decoration: none;
+	}
+	#email a:hover {
+		color:white;
+		text-decoration: none;
+	}
+	#email a:active {
+		color:white;
+		text-decoration: none;
+	}
+	#email a:visited {
+		color:white;
+		text-decoration: none;
+	}

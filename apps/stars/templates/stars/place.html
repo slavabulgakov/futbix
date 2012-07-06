@@ -1,0 +1,10 @@
+	<table>
+      <tbody>
+        <tr><td>Название:</td><td>{{ place.title }}</td></tr>
+        <tr><td>Описание:</td><td>{{ place.description }}</td></tr>
+        <tr><td>Цена:</td><td>{{ place.price }}</td></tr>
+		<tr><td>Телефон:</td><td>{{ place.phone }}</td></tr>
+		<tr><td>Адрес:</td><td>{{ place.address }}</td></tr>
+		<tr><td>Тип:</td><td>{% for kind in place.sport_kind.all %} {{ kind }}</br> {% endfor %}</td></tr>
+      </tbody>
+	</table>

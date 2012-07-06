@@ -1,0 +1,5 @@
+AddDefaultCharset utf-8
+AddHandler wsgi-script .wsgi
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /home/f/futbixru/public_html/futbix/django.wsgi/$1 [QSA,L]
