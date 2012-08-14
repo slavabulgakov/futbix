@@ -6,8 +6,8 @@
 		var zoom = 12;
 		var message_opened = false;
 		var epsilon = 10.0;
-		
-		
+		var api_id;
+
 		Array.prototype.unique = function() {
 			var a = this.concat();
 			for(var i=0; i<a.length; ++i) {
@@ -61,9 +61,13 @@
 			array.splice(array.indexOf(value), 1);
 		}
 	
-    function login() {
-      
-			VK.Auth.login(getUserData);
+    	function login() {
+    		var settings = 'friends';
+    		var redirect_url = 'http%3A%2F%2F' + window.location.host + '%2Fservice';
+    		console.log(redirect_url);
+    		var vk_url = 'http://api.vkontakte.ru/oauth/authorize?client_id=' + api_id + '&scope=' + settings +	'&redirect_uri=' + redirect_url;
+			window.open(vk_url,"Window1", "menubar=no,width=800,height=400,toolbar=no");
+			// VK.Auth.login(getUserData);
 		}
 		
 		function logout() {
