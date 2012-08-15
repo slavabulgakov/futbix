@@ -1,8 +1,4 @@
-﻿function foo(){
-	console.log('slava');
-}
-
-var setMode = false;
+﻿var setMode = false;
 var map = null;
 var authButton = null;
 var stars = [];
@@ -398,9 +394,9 @@ YMaps.jQuery(function () {
 
     // Добавление инструментов на карту
     map.addControl(toolbar);
+    map.addControl(new YMaps.SearchControl());
 	map.addControl(new YMaps.TypeControl());
 	map.addControl(new YMaps.Zoom());
-	map.addControl(new YMaps.SearchControl());
 
 	// Включаем масштабирование колесиком мыши
 	map.enableScrollZoom();

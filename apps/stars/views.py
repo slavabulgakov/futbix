@@ -159,4 +159,4 @@ def service(request):
 	last_name = profiles['response'][0]['last_name']
 	# authentication(vk_id, first_name, last_name)
 
-	return HttpResponse('<script type="text/javascript">parent.foo(); close();</script>')
+	return HttpResponse('<script type="text/javascript">opener.authButtonSetLogout("' + first_name + '", "' + last_name + '"); close();</script>')
