@@ -11,6 +11,8 @@ import urllib2
 import urllib
 import json
 from stars import vk
+import string
+from random import choice
 
 def hello(request):
 	response = {}
@@ -107,21 +109,22 @@ def logout(request):
 	# 	return json_decode($response);
 	# }
 
-def authentication(profiles):
-	vk_id = profiles['response'][0]['uid']
-	first_name = profiles['response'][0]['first_name']
-	last_name = profiles['response'][0]['last_name']
-	password = request.GET['password']
-		
-		user = auth.authenticate(username=vk_id, password=password)
-		if user is not None and user.is_active:
-			auth.login(request, user)
-		else:
-			user = UserProfile.objects.create_user(username = vk_id, email = '', password=password)
-			user.vk_id = vk_id
-			user.first_name = first_name
-			user.last_name = last_name
-			user.save()
+def generatePassword():
+	size = 9
+	p = ''.join([choice(string.letters + string.digits) for i in range(size)])
+	return p
+
+def authentication(vk_id, first_name, last_name):
+	password = generatePassword()
+	user = auth.authenticate(username=vk_id, password=password)
+	if user is not None and user.is_active:
+		auth.login(request, user)
+	else:
+		user = UserProfile.objects.create_user(username = vk_id, email = '', password=password)
+		user.vk_id = vk_id
+		user.first_name = first_name
+		user.last_name = last_name
+		user.save()
 
 def getRequest(url):
 	response = urllib.urlopen(url)
@@ -151,6 +154,9 @@ def service(request):
 	# auth.logout(request)
 
 	profiles = callVkApi('getProfiles', 'uids=' + str(vk_user_id), vk_access_token)
-	print profiles['response'][0]['uid']
+	vk_id = profiles['response'][0]['uid']
+	first_name = profiles['response'][0]['first_name']
+	last_name = profiles['response'][0]['last_name']
+	# authentication(vk_id, first_name, last_name)
 
-	return HttpResponse('ok')
+	return HttpResponse('<script type="text/javascript">parent.foo(); close();</script>')
