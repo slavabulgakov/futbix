@@ -160,3 +160,8 @@ def service(request):
 	# authentication(vk_id, first_name, last_name)
 
 	return HttpResponse('<script type="text/javascript">opener.authButtonSetLogout("' + first_name + '", "' + last_name + '"); close();</script>')
+
+def isAuth(request):
+	if request.user.is_authenticated():
+		return HttpResponse("true", content_type="text/plain")
+	return HttpResponse("false", content_type="text/plain")
