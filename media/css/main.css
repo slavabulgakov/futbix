@@ -54,3 +54,16 @@ html, body, #YMapsID {
 		color:white;
 		text-decoration: none;
 	}
+
+	#signin {
+		display:block;
+		position:absolute;
+		right:5px;
+		top:0px;
+		z-index:2;
+		opacity:.8;
+		background-color:black;
+		color:white;
+		font-size:14px;
+		padding:5px 5px 5px 5px;
+	}
