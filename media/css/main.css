@@ -67,3 +67,19 @@ html, body, #YMapsID {
 		font-size:14px;
 		padding:5px 5px 5px 5px;
 	}
+	#signin a {
+		color:white;
+		text-decoration: none;
+	}
+	#signin a:hover {
+		color:white;
+		text-decoration: none;
+	}
+	#signin a:active {
+		color:white;
+		text-decoration: none;
+	}
+	#signin a:visited {
+		color:white;
+		text-decoration: none;
+	}

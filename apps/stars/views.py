@@ -13,6 +13,7 @@ import json
 from stars import vk
 import string
 from random import choice
+from django.contrib.auth.models import User
 
 def hello(request):
 	response = {}
@@ -114,12 +115,16 @@ def generatePassword():
 	p = ''.join([choice(string.letters + string.digits) for i in range(size)])
 	return p
 
-def authentication(vk_id, first_name, last_name):
-	password = generatePassword()
-	user = auth.authenticate(username=vk_id, password=password)
+def authentication(vk_id, first_name, last_name, request):
+	# user = auth.authenticate(username=vk_id, password=password)
+	user = User.objects.get(username__exact=str(vk_id))
 	if user is not None and user.is_active:
+		print '111'
+		user.backend='django.contrib.auth.backends.ModelBackend'
 		auth.login(request, user)
 	else:
+		print '222'
+		password = generatePassword()
 		user = UserProfile.objects.create_user(username = vk_id, email = '', password=password)
 		user.vk_id = vk_id
 		user.first_name = first_name
@@ -151,17 +156,16 @@ def service(request):
 		pass
 	finally:
 		pass
-	# auth.logout(request)
 
 	profiles = callVkApi('getProfiles', 'uids=' + str(vk_user_id), vk_access_token)
 	vk_id = profiles['response'][0]['uid']
 	first_name = profiles['response'][0]['first_name']
 	last_name = profiles['response'][0]['last_name']
-	# authentication(vk_id, first_name, last_name)
+	authentication(vk_id, first_name, last_name, request)
 
-	return HttpResponse('<script type="text/javascript">opener.authButtonSetLogout("' + first_name + '", "' + last_name + '"); close();</script>')
+	return HttpResponse('<script type="text/javascript">opener.authButtonSetLogout(); close();</script>')
 
 def isAuth(request):
 	if request.user.is_authenticated():
-		return HttpResponse("true", content_type="text/plain")
+		return HttpResponse(request.user.first_name + ' ' + request.user.last_name, content_type="text/plain")
 	return HttpResponse("false", content_type="text/plain")
