@@ -7,10 +7,10 @@ ymaps.ready(function () {
    к контейнеру с id="YMapsID" */
 	var myMap = new ymaps.Map("YMapsID", {
         // Центр карты
-        center: [55.76, 37.64],
+        center: [ymaps.geolocation.latitude, ymaps.geolocation.longitude],
         // Коэффициент масштабирования
         zoom: 10,
         // Тип карты
-        type: "yandex#satellite"
+        type: "yandex#map"
     });
 });
