@@ -30,6 +30,11 @@ function login(){
 	}
 }
 
+function showSigninDialog(){
+	// $('body').attr('style', '-webkit-filter: blur(5px)');
+	
+}
+
 function checkLogin(){
 	$.ajax({
 		url:'/is_auth', 
