@@ -1,20 +1,29 @@
 function authButtonSetLogin() {
-	$('#signin a').attr('authed', 'false');
-	$('#signin a').text('Войти');
+	$('#sign').attr('authed', 'false');
+	$('#sign').text('Войти');
+	$('#sign').removeClass('signout');
+	$('#sign').removeClass('loading');
+	$('#sign').addClass('signin');
 }
 
 function authButtonSetLogout(fullName) {
-	$('#signin a').attr('authed', 'true');
-	$('#signin a').text('Выйти: ' + fullName);
+	$('#sign').attr('authed', 'true');
+	$('#sign').text('Выйти: ' + fullName);
+	$('#sign').removeClass('signin');
+	$('#sign').removeClass('loading');
+	$('#sign').addClass('signout');
 }
 
 function authButtonSetLoading(){
-	$('#signin a').text('Загрузка...');
+	$('#sign').text('Загрузка...');
+	$('#sign').removeClass('signin');
+	$('#sign').removeClass('signout');
+	$('#sign').addClass('loading');
 }
 
 function login(){
 	authButtonSetLoading();
-	if ($('#signin a').attr('authed') == 'false') {
+	if ($('#sign').attr('authed') == 'false') {
 		var settings = 'friends';
 		var redirect_url = 'http%3A%2F%2F' + window.location.host + '%2Fservice';
 		var vk_url = 'http://api.vkontakte.ru/oauth/authorize?client_id=' + api_id + '&scope=' + settings +	'&redirect_uri=' + redirect_url;
@@ -30,7 +39,7 @@ function login(){
 	}
 }
 
-function showSigninDialog(){
+function showsignDialog(){
 	// $('body').attr('style', '-webkit-filter: blur(5px)');
 	
 }
@@ -40,7 +49,7 @@ function checkLogin(){
 		url:'/is_auth', 
 		dataType:'text',
 		success:function(fullName) {
-			$('#signin a').on("click", function(event){ login(); });
+			$('#sign').on("click", function(event){ login(); });
 			if (fullName == 'false') {
 				authButtonSetLogin();
 			} else {

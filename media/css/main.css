@@ -3,6 +3,8 @@ html, body, #YMapsID {
 		height: 100%;
 		font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
 		font-size: 12px;overflow-x:hidden;
+		padding: 0px;
+		margin: 0px;
 	}
         
 	body {
@@ -55,31 +57,51 @@ html, body, #YMapsID {
 		text-decoration: none;
 	}
 
-	#signin {
-		display:block;
-		position:absolute;
-		right:5px;
-		top:0px;
+	#sign {
+		display:-moz-inline-stack;display:inline-block;_overflow:hidden;*zoom:1;*display:inline;
+		position:relative;
+		right:0px;
 		z-index:2;
-		opacity:.8;
-		background-color:black;
+		background-color:#4c8efb;
+		background-repeat: no-repeat;
+		background-position: 95% 50%;
 		color:white;
 		font-size:14px;
-		padding:5px 5px 5px 5px;
-	}
-	#signin a {
+		padding:4px 30px 5px 5px;
+		margin: 5px;
 		color:white;
 		text-decoration: none;
 	}
-	#signin a:hover {
+	#sign :hover {
 		color:white;
 		text-decoration: none;
 	}
-	#signin a:active {
+	#sign :active {
 		color:white;
 		text-decoration: none;
 	}
-	#signin a:visited {
+	#sign :visited {
 		color:white;
 		text-decoration: none;
+	}
+	.signin{
+		background-image: url(/media/img/signin.png);
+	}
+	.signout{
+		background-image: url(/media/img/signout.png);
+	}
+	.loading{
+		background-image: none;
+	}
+
+	#right_panel {
+		display:block;
+		position:absolute;
+		right:0px;
+		top:0px;
+		z-index:2;
+		width: 200px;
+		height: 100%;
+		text-align: right;
+		/*background-color: red;*/
 	}
