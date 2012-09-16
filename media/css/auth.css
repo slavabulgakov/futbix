@@ -1,0 +1,36 @@
+#sign {
+	display:-moz-inline-stack;display:inline-block;_overflow:hidden;*zoom:1;*display:inline;
+	position:relative;
+	right:0px;
+	z-index:2;
+	background-color:#4c8efb;
+	background-repeat: no-repeat;
+	background-position: 95% 50%;
+	color:white;
+	font-size:14px;
+	padding:4px 30px 5px 5px;
+	margin: 5px;
+	color:white;
+	text-decoration: none;
+}
+#sign :hover {
+	color:white;
+	text-decoration: none;
+}
+#sign :active {
+	color:white;
+	text-decoration: none;
+}
+#sign :visited {
+	color:white;
+	text-decoration: none;
+}
+.signin{
+	background-image: url(/media/img/signin.png);
+}
+.signout{
+	background-image: url(/media/img/signout.png);
+}
+.loading{
+	background-image: none;
+}

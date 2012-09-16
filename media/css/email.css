@@ -1,0 +1,29 @@
+#email {
+	display:block;
+	position:absolute;
+	right:0px;
+	bottom:0px;
+	z-index:2;
+	background-color:black;
+	color:white;
+	font-size:14px;
+	padding:5px 5px 5px 5px;
+	background-color:#4c8efb;
+	margin: 5px;
+}
+#email {
+	color:white;
+	text-decoration: none;
+}
+#email :hover {
+	color:white;
+	text-decoration: none;
+}
+#email :active {
+	color:white;
+	text-decoration: none;
+}
+#email :visited {
+	color:white;
+	text-decoration: none;
+}
